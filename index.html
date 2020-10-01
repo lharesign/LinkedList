@@ -3,97 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js" defer></script>
     <title>Linked List</title>
 </head>
 
 <body>
     <div id="output"></div>
 
-    <script>
-        document.getElementById("output").innerHTML = "Linked List" + "<br>";
-
-        function LinkedList() {
-            let count = 0;
-            let head = null;
-
-            this.GetCount = function () {
-                return count;
-            }
-
-            this.AddFirst = function (data) {
-                let node = {
-                    data: data,
-                    next: head
-                } 
-                head = node;
-                count++;
-            }
-
-            this.Add = function (data, index) {
-                if (index === 0) {
-                    this.AddFirst(data);
-                    console.log("first one");
-                } 
-                
-                else if (index > -1 && index <= count) {
-                    var node = {
-                        data: data,
-                        next: null
-                    }
-
-                    let previous;
-                    let current = head;
-                    let i = 0;
-
-                    while (i++ < index) {
-                        previous = current;
-                        current = current.next;
-                    }
-
-                    previous.next = node;
-                    node.next = current;
-                    count++;
-
-                } else {
-                    alert("Error: The specified index is outside the range of the linked list");
-                }
-            }
-
-            this.DisplayAll = function () {
-                if (head === null) {
-                    return null;
-                } else {
-                    var arr = new Array();
-                    var current = head;
-
-                    for (let i = 0; i < count; i++) {
-                        arr[i] = current.data;
-                        current = current.next;
-                    }
-                    return arr;
-                }
-            }
-
-
-
-            //NEW METHODS HERE
-        }
-
-        let myList = new LinkedList();
-
-        
-        myList.Add("0", 0)
-        myList.Add("1", 1)
-        myList.Add("2", 2)
-        myList.Add("3", 3)
-        myList.Add("4", 4)
-        myList.Add("5", 5)
-        myList.Add("6", 6)
-        
-        document.getElementById("output").innerHTML = myList.DisplayAll();
-
-
-    </script>
+    
 </body>
 
 </html>
