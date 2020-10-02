@@ -10259,3 +10259,33 @@ form .row:first-child .floating-label-form-group {
 .copyright {
   background-color: #1a252f;
 }
+
+.ui-controls {
+  width: 48%;
+  display: inline-block;
+}
+
+.output {
+  width: 48%;
+  display: inline-block;
+  padding-left: 20%;
+}
+
+.todo-input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.todo-btn {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+#output-list {
+list-style-position: inside;
+}
+
+.about-todo {
+  text-align: center;
+}

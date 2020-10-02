@@ -1,8 +1,6 @@
-document.getElementById("output").innerHTML = "Linked List" + "<br>";
-
+var count = 0;
 //Initialise an empty Linked List 
 function LinkedList() {
-    let count = 0;
     let head = null;
 
     //Function for returning Linked List count
@@ -135,6 +133,51 @@ function LinkedList() {
             count--;
         }
     }
+
+    this.ClearList = function () {
+        head = null;
+        count = 0;
+    }
+}
+
+function addClicked() {
+    var toAddValue = document.getElementById("add-input").value;
+    var toAddPosition = document.getElementById("add-position-input").value;
+
+    if (count == 0) {
+        myList.AddFirst(toAddValue);
+    } else {
+        myList.Add(toAddValue, toAddPosition);
+    }
+    document.getElementById("add-input").value = "";
+    document.getElementById("add-position-input").value = "";
+    printList();
+}
+
+function removeClicked() {
+    var toRemove = document.getElementById("remove-position-input").value;
+    parseInt(toRemove);
+
+    if (toRemove >= 1 && toRemove <= count) {
+        myList.RemoveAt(toRemove);
+    } else {
+        myList.RemoveFirst();
+    }
+    document.getElementById("remove-position-input").value = "";
+    printList();
+}
+
+function clearClicked() {
+    myList.ClearList();
+    document.getElementById("output-list").innerHTML = "List cleared";
+    console.log(myList);
+}
+
+function printList() {
+    document.getElementById("output-list").innerHTML = "Todo List:";
+    for (i = 0; i < count; i++) {
+        document.getElementById("output-list").innerHTML += "<li>" + myList.DisplayAt(i) + "</li>";
+    }
 }
 
 let myList = new LinkedList();
@@ -147,10 +190,3 @@ myList.Add("Davina", 3)
 myList.Add("Edward", 4)
 myList.Add("Fanny", 5)
 myList.Add("George", 6)
-
-document.getElementById("output").innerHTML = myList.DisplayAll();
-document.getElementById("output").innerHTML += "<br>" + myList.DisplayAt(3);
-myList.RemoveFirst();
-document.getElementById("output").innerHTML += "<br>" + myList.DisplayAll();
-myList.RemoveAt(3);
-document.getElementById("output").innerHTML += "<br>" + myList.DisplayAll();
